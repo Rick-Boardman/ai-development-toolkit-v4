@@ -1,4 +1,4 @@
-# 🚀 Start Here
+# 🚀 Start Here (v4)
 
 ## AI Development Toolkit
 
@@ -10,53 +10,50 @@ A lightweight context management system for GitHub Copilot that helps AI agents 
 
 ### New to the System?
 
-1. **[OVERVIEW.md](.adt/OVERVIEW.md)** - What's included and how it works
-2. **[README.md](.adt/README.md)** - Complete documentation
-3. **[INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md)** - Add to your project
+1. **[OVERVIEW.md](OVERVIEW.md)** - What's included and how it works
+2. **[README.md](README.md)** - Complete documentation
+3. **[INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md)** - Add to your project
 
 ### Ready to Use It?
 
-1. Copy as `.adt/` to your project (see [INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md))
-2. Add one reference line to your `.github/copilot-instructions.md`
-3. Customize context files in `.adt/project-context/`
+1. Add this repo to your project as a git submodule at `.adt/` (see [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md))
+2. Copy `.adt/context-template/` into your project as `.adt-context/` and commit it
+3. Add a reference line to your `.github/copilot-instructions.md`
 4. Start working
 
 ---
 
 ## ⚡ 30-Second Overview
 
-**What it is:** Context files + automation scripts + workflow instructions for Copilot
+**What it is:** A protocol + a small committed context directory (`.adt-context/`)
 
-**What it does:** Task queue management + Decision tracking + Multi-agent coordination
+**What it does:** Session context + decision tracking + lightweight coordination
 
-**What makes it special:** Queue health monitoring with AI proposal generation
+**What makes it special:** A small committed `.adt-context/` that the AI re-reads during the session (so it doesn't repeat mistakes)
 
-**How it works:** Self-contained in `.adt/` directory, integrates with one reference line
+**How it works:** `.adt/` is a submodule (toolkit). `.adt-context/` lives in your repo (project memory).
 
 ---
 
 ## 📊 The System
 
-- **16 files total**
-- **150 lines** of PowerShell automation
-- **7 core context documents**
-- **2 helper scripts**
-- Works for 1 to N agents naturally
+- Toolkit (this repo): docs + protocol + templates
+- Project memory (your repo): `.adt-context/` committed
+- Optional scratch area: `.scratchpad/` gitignored
 
 ---
 
 ## 🎯 Core Features
 
-### Queue Health Management
+### Session Memory
 
-**Problem:** Teams run out of prioritized work, development stalls
+**Problem:** AI repeats the same mistakes during long sessions
 
 **Solution:**
 
-1. ✅ Monitor queue health automatically
-2. 🤖 AI generates contextual proposals
-3. 👤 Human reviews and approves
-4. ♻️ Queue stays healthy
+1. ✅ Keep a small, current “Now” list
+2. 🧾 Log attempts/errors so the AI stops repeating them
+3. ⛔ Provide an `interrupt.md` “pause button”
 
 ### Multi-Agent Coordination
 
@@ -72,32 +69,36 @@ A lightweight context management system for GitHub Copilot that helps AI agents 
 ````text
 your-project/
 ├── .github/
-│   └── copilot-instructions.md       ← Your rules + reference to .adt
+│   └── copilot-instructions.md       ← Your rules + reference to .adt/INSTRUCTIONS.md
 │
-└── .adt/                              ← Self-contained system
-    ├── INSTRUCTIONS.md                ← Copilot workflow instructions
-    └── project-context/
-        ├── README.md                  ← Project overview
-        ├── status.md                  ← Current state
-        ├── tasks.md                   ← Priority queue with agent claiming
-        ├── decisions.md               ← Decision log
-        ├── session-log.md             ← Session history
-        ├── active-agents.md           ← Agent registry
-        ├── work-partitions.md         ← Work area assignments
-        ├── check-queue.ps1            ← Health checker
-        ├── propose-tasks.ps1          ← Proposal generator
-        └── queue-proposals/           ← AI proposals
-```---
+├── .adt/                              ← Git submodule (toolkit)
+│   ├── INSTRUCTIONS.md                ← Protocol the AI must follow
+│   └── context-template/              ← Copy once into your project
+│
+├── .adt-context/                      ← Committed project memory (copy of template)
+│   ├── README.md                      ← Context snapshot (keep short)
+│   ├── now.md                         ← 1–5 current tasks
+│   ├── backlog.md                     ← Ideas/proposals/next work
+│   ├── log.md                         ← Append-only “done / notable events”
+│   ├── attempts.md                    ← Commands tried + errors + outcomes
+│   ├── common-pitfalls.md             ← Sticky mistakes & conventions
+│   ├── interrupt.md                   ← Pause button for humans
+│   └── decisions.md                   ← Technical decisions w/ rationale
+│
+└── .scratchpad/                       ← Temporary scripts/debug (gitignored)
+````
+
+---
 
 ## 🎓 Documentation Map
 
 | Document                 | Purpose                    | Read When                 |
 | ------------------------ | -------------------------- | ------------------------- |
-| **.adt/START-HERE.md**        | Navigation hub (this file) | First time                |
-| **.adt/OVERVIEW.md**          | System overview            | Want to see what's inside |
-| **.adt/README.md**            | Complete documentation     | Ready to use it           |
-| **.adt/INTEGRATION-GUIDE.md** | How to add to your project | Ready to install          |
-| **.adt/INSTRUCTIONS.md**      | Copilot workflow guide     | Understanding workflows   |
+| **START-HERE.md**        | Navigation hub (this file) | First time                |
+| **OVERVIEW.md**          | System overview            | Want to see what's inside |
+| **README.md**            | Complete documentation     | Ready to use it           |
+| **INTEGRATION-GUIDE.md** | How to add to your project | Ready to install          |
+| **INSTRUCTIONS.md**      | Copilot protocol           | Understanding workflows   |
 
 ---
 
@@ -106,15 +107,15 @@ your-project/
 ### Phase 1: Understand (10 minutes)
 
 1. Read this file (.adt/START-HERE.md) ✓ You're here
-2. Skim [OVERVIEW.md](.adt/OVERVIEW.md) - See what's included
-3. Read [README.md](.adt/README.md) - Complete documentation
+2. Skim [OVERVIEW.md](OVERVIEW.md) - See what's included
+3. Read [README.md](README.md) - Complete documentation
 
 ### Phase 2: Install (5 minutes)
 
-1. Follow [INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md)
-2. Copy as `.adt/` to your project
-3. Add one reference line to your copilot-instructions.md
-4. Customize context files
+1. Follow [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md)
+2. Add `.adt/` as a submodule
+3. Copy `context-template/` to `.adt-context/` and commit it
+4. Add one reference line to `.github/copilot-instructions.md`
 
 ### Phase 3: Use (Ongoing)
 
