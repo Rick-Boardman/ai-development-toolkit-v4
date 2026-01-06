@@ -32,6 +32,8 @@ cp -r .adt/context-template .adt-context
 
 Add a line to your `.github/copilot-instructions.md` (top is best):
 
+If you want the recommended high-attention wording, copy/paste from `COPILOT-INSTRUCTIONS-SNIPPET.md` in this repo.
+
 ```markdown
 > **Context System**: Follow `.adt/INSTRUCTIONS.md` and treat `.adt-context/` as the project memory.
 ```
