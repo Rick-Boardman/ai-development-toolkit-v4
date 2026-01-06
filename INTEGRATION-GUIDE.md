@@ -12,6 +12,10 @@ v4 assumes:
 
 ## Install (Recommended)
 
+All commands below are intended to be run from the **consuming project root** (the repo you’re adding ADT to).
+
+**Windows note**: use the PowerShell blocks unless you’re using Git Bash or WSL.
+
 ### 1) Add the toolkit as a submodule
 
 From your project root:
@@ -20,12 +24,34 @@ From your project root:
 git submodule add https://github.com/Rick-Boardman/ai-development-toolkit-v4.git .adt
 ```
 
+If you cloned a repo that already contains the submodule, initialize it:
+
+```bash
+git submodule update --init --recursive
+```
+
+Or clone with submodules from the start:
+
+```bash
+git clone --recurse-submodules <your-repo-url>
+```
+
 ### 2) Create and commit `.adt-context/`
 
 Copy the template into your repo (and commit it):
 
+**bash:**
+
 ```bash
-cp -r .adt/context-template .adt-context
+mkdir -p .adt-context
+cp -r .adt/context-template/* .adt-context/
+```
+
+**PowerShell (Windows):**
+
+```powershell
+New-Item -ItemType Directory -Force .adt-context | Out-Null
+Copy-Item -Recurse -Force .adt\context-template\* .adt-context\
 ```
 
 ### 3) Point Copilot at the protocol
@@ -48,6 +74,20 @@ Add this to your project `.gitignore`:
 
 ---
 
+## What To Commit (Checklist)
+
+After installing, your consuming repo typically needs these committed:
+
+- `.gitmodules` (created/updated by the submodule add)
+- `.adt/` submodule pointer (the gitlink entry)
+- `.adt-context/` directory (copied from the template)
+- `.github/copilot-instructions.md` change (the line pointing to the protocol)
+- `.gitignore` update for `.scratchpad/` (recommended)
+
+Avoid committing `.scratchpad/` contents.
+
+---
+
 ## Updating the Toolkit
 
 Because `.adt/` is a submodule, updating is straightforward:
@@ -55,6 +95,8 @@ Because `.adt/` is a submodule, updating is straightforward:
 ```bash
 git submodule update --remote --merge
 ```
+
+Then commit the submodule pointer update in your consuming repo.
 
 If the toolkit template changes, you can selectively copy updates from `.adt/context-template/` into `.adt-context/`.
 

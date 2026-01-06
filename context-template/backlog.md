@@ -6,7 +6,7 @@ This is the “later” list. Items can be rough.
 
 - [Backlog item]
 
-## Ideas / Proposals
+## Ideas
 
 - [Idea]
 

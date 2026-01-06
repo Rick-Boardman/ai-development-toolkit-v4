@@ -78,7 +78,7 @@ your-project/
 ├── .adt-context/                      ← Committed project memory (copy of template)
 │   ├── README.md                      ← Context snapshot (keep short)
 │   ├── now.md                         ← 1–5 current tasks
-│   ├── backlog.md                     ← Ideas/proposals/next work
+│   ├── backlog.md                     ← Ideas / next work
 │   ├── log.md                         ← Append-only “done / notable events”
 │   ├── attempts.md                    ← Commands tried + errors + outcomes
 │   ├── common-pitfalls.md             ← Sticky mistakes & conventions
@@ -106,7 +106,7 @@ your-project/
 
 ### Phase 1: Understand (10 minutes)
 
-1. Read this file (.adt/START-HERE.md) ✓ You're here
+1. Read this file (START-HERE.md) ✓ You're here
 2. Skim [OVERVIEW.md](OVERVIEW.md) - See what's included
 3. Read [README.md](README.md) - Complete documentation
 
@@ -119,10 +119,10 @@ your-project/
 
 ### Phase 3: Use (Ongoing)
 
-1. Copilot follows your workflow automatically
-2. Monitor queue health
-3. Generate proposals when needed
-4. Document decisions as you make them
+1. Keep your working set small in `.adt-context/now.md`
+2. Log failed commands/approaches in `.adt-context/attempts.md` to avoid repetition
+3. Use `.adt-context/interrupt.md` as a human pause button
+4. Record decisions in `.adt-context/decisions.md` when they matter
 
 ---
 
@@ -142,12 +142,11 @@ your-project/
 - Decision documentation
 - Team handoff support
 
-### Queue Innovation
+### Project Memory (Committed)
 
-- Automated health monitoring
-- AI-generated proposals
-- Human approval workflow
-- Never runs out of priorities
+- `.adt-context/now.md` keeps the active work tiny
+- `.adt-context/log.md` is append-only history
+- `.adt-context/attempts.md` prevents repeating the same errors
 
 ---
 
@@ -156,20 +155,20 @@ your-project/
 - Projects using GitHub Copilot in VS Code
 - Teams needing lightweight context management
 - Multi-agent development workflows
-- Anyone wanting queue health management
+- Anyone wanting lightweight, committed session memory
 - Developers valuing simplicity
 
 ---
 
 ## 📞 Quick Help
 
-**Can't find something?** Check [OVERVIEW.md](.adt/OVERVIEW.md) for system breakdown
+**Can't find something?** Check [OVERVIEW.md](OVERVIEW.md) for system breakdown
 
-**Want full details?** Read [README.md](.adt/README.md) for complete documentation
+**Want full details?** Read [README.md](README.md) for complete documentation
 
-**Installation help?** See [INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md) for step-by-step guide
+**Installation help?** See [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md) for step-by-step guide
 
-**Understanding workflows?** Read [INSTRUCTIONS.md](.adt/INSTRUCTIONS.md) for Copilot workflows
+**Understanding workflows?** Read [INSTRUCTIONS.md](INSTRUCTIONS.md) for Copilot workflows
 
 ---
 
@@ -177,29 +176,28 @@ your-project/
 
 **Right now:**
 
-- Continue to [OVERVIEW.md](.adt/OVERVIEW.md) for system overview
-- Or jump to [README.md](.adt/README.md) for full documentation
-- Or go straight to [INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md) to install
+- Continue to [OVERVIEW.md](OVERVIEW.md) for system overview
+- Or jump to [README.md](README.md) for full documentation
+- Or go straight to [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md) to install
 
 **Within a week:**
 
 - System set up in your project (`.adt/` directory)
 - Team using it naturally
-- Queue health monitoring active
-- First proposals generated
+- A useful `now.md` / `attempts.md` rhythm established
 
 **Long term:**
 
 - Becomes second nature
 - Context stays current
-- Queue never depletes
+- Fewer repeated mistakes during long sessions
 - Team coordination improves
 
 ---
 
 **You're all set.** Choose your path above and start exploring!
 
-📖 Full docs → [README.md](.adt/README.md)
-🎯 System overview → [OVERVIEW.md](.adt/OVERVIEW.md)
-⚙️ Install now → [INTEGRATION-GUIDE.md](.adt/INTEGRATION-GUIDE.md)
+📖 Full docs → [README.md](README.md)
+🎯 System overview → [OVERVIEW.md](OVERVIEW.md)
+⚙️ Install now → [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md)
 ````

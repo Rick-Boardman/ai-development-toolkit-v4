@@ -18,6 +18,8 @@ Issue trackers are great between commits. v4 focuses on the gap *within* a codin
 
 ## Install (Recommended)
 
+On Windows, prefer the **PowerShell** commands below unless you’re using Git Bash or WSL.
+
 1. Add the toolkit as a submodule at `.adt/`:
 
    ```bash
@@ -26,8 +28,18 @@ Issue trackers are great between commits. v4 focuses on the gap *within* a codin
 
 2. Copy the template into your repo as `.adt-context/` and commit it:
 
+   **bash:**
+
    ```bash
-   cp -r .adt/context-template .adt-context
+   mkdir -p .adt-context
+   cp -r .adt/context-template/* .adt-context/
+   ```
+
+   **PowerShell (Windows):**
+
+   ```powershell
+   New-Item -ItemType Directory -Force .adt-context | Out-Null
+   Copy-Item -Recurse -Force .adt\context-template\* .adt-context\
    ```
 
 3. Add one line to your project’s `.github/copilot-instructions.md`:
@@ -42,7 +54,7 @@ Keep these short; prune aggressively.
 
 - `README.md` — context snapshot (goal, constraints, links)
 - `now.md` — 1–5 current tasks only
-- `backlog.md` — future work / proposals / rough ideas
+- `backlog.md` — future work / ideas / rough notes
 - `log.md` — append-only “done + notable events”
 - `attempts.md` — commands tried, errors, and outcomes (prevents repetition)
 - `common-pitfalls.md` — sticky gotchas + repo conventions
