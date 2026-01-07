@@ -118,9 +118,31 @@ Because `.adt/` is a submodule, updating is straightforward:
 git submodule update --remote --merge
 ```
 
+If you prefer to be explicit about the path:
+
+```bash
+git submodule update --remote --merge .adt
+```
+
+Or if you typically update via `git pull`, you can also use:
+
+```bash
+git pull --recurse-submodules
+```
+
 Then commit the submodule pointer update in your consuming repo.
 
 If the toolkit template changes, you can selectively copy updates from `.adt/context-template/` into `.adt-context/`.
+
+### Upgrade note: initialization state
+
+If your project already has `.adt-context/` set up from an older toolkit version but does **not** have `.adt-context/adt-state.json` yet, do this once **after updating the submodule**:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .adt\scripts\adt-init.ps1
+```
+
+This will backfill the initialization flag (and create any missing bits like `.gitignore` entries) without overwriting your existing `.adt-context/` content. Commit any new files it creates (commonly `.adt-context/adt-state.json`).
 
 ---
 

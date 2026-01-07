@@ -77,6 +77,24 @@ Use a `.scratchpad/` directory for temporary scripts, debug probes, and one-off 
 - Add it to `.gitignore` by default
 - Don’t leave run-once scripts scattered around the repo
 
+## Updating the Toolkit
+
+If your project uses `.adt/` as a git submodule, update it from your repo root:
+
+```bash
+git submodule update --remote --merge .adt
+```
+
+Then commit the updated submodule pointer in your consuming repo.
+
+### Upgrade note: initialization state
+
+If you updated from an older toolkit version and your repo already had `.adt-context/` but does **not** have `.adt-context/adt-state.json` yet, run this once and commit the new state file:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .adt\scripts\adt-init.ps1
+```
+
 ## Upstream Feedback
 
 When you notice repeated agent mistakes or missing best practices:

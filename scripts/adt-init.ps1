@@ -198,6 +198,7 @@ $oldAdtPath = Join-Path $ProjectRoot '.old-adt'
 $migrationRequired = Test-Path -LiteralPath $oldAdtPath
 
 $statePath = Join-Path $contextDir 'adt-state.json'
+$stateFileExisted = Test-Path -LiteralPath $statePath
 $state = $null
 if (Test-Path -LiteralPath $statePath) {
     try {
@@ -237,6 +238,12 @@ if (-not $state.migration) {
 }
 
 $state | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $statePath -Encoding UTF8
+
+if (-not $stateFileExisted) {
+    Write-Host 'Created .adt-context/adt-state.json (initialization state).'
+} else {
+    Write-Host 'Updated .adt-context/adt-state.json.'
+}
 
 if ($migrationRequired) {
     $migrationNotePath = Join-Path $contextDir 'migration-needed.md'
