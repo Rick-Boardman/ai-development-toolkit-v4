@@ -21,8 +21,10 @@ Key idea: separate the **toolkit** from the **project’s memory**.
 └── context-template/            Copy once into your repo as .adt-context/
     ├── README.md                Context snapshot
     ├── now.md                   1–5 current tasks
+    ├── reminders.md             Reminders beyond the task list
     ├── backlog.md               Future work / ideas
     ├── log.md                   Append-only done/events
+    ├── handoff.md               Detailed end-of-session dump
     ├── attempts.md              Commands tried + outcomes
     ├── common-pitfalls.md       Sticky gotchas
     ├── interrupt.md             Human pause button

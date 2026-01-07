@@ -42,6 +42,12 @@ On Windows, prefer the **PowerShell** commands below unless you’re using Git B
    Copy-Item -Recurse -Force .adt\context-template\* .adt-context\
    ```
 
+   Or run the initializer (recommended; creates `.adt-context/`, `.scratchpad/`, `.github/`, `.gitignore`, and a starter copilot instructions block):
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .adt\scripts\adt-init.ps1
+   ```
+
 3. Add one line to your project’s `.github/copilot-instructions.md`:
 
    ```markdown
@@ -54,8 +60,10 @@ Keep these short; prune aggressively.
 
 - `README.md` — context snapshot (goal, constraints, links)
 - `now.md` — 1–5 current tasks only
+- `reminders.md` — reminders beyond the task list
 - `backlog.md` — future work / ideas / rough notes
 - `log.md` — append-only “done + notable events”
+- `handoff.md` — detailed end-of-session dump when work is in-flight
 - `attempts.md` — commands tried, errors, and outcomes (prevents repetition)
 - `common-pitfalls.md` — sticky gotchas + repo conventions
 - `interrupt.md` — human pause button

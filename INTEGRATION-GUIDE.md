@@ -38,6 +38,26 @@ git clone --recurse-submodules <your-repo-url>
 
 ### 2) Create and commit `.adt-context/`
 
+Recommended: run the initializer script (does the setup below automatically).
+
+**PowerShell (Windows):**
+
+```powershell
+# from your project root
+powershell -ExecutionPolicy Bypass -File .adt\scripts\adt-init.ps1
+```
+
+What it does:
+
+- Creates `.adt-context/` (if missing) and fills missing files from the template
+- Creates `.scratchpad/` (if missing)
+- Creates/updates `.gitignore` to include `.scratchpad/`
+- Creates `.github/` and `.github/copilot-instructions.md` (if missing)
+- Ensures `.github/copilot-instructions.md` contains ADT Option A + the Stop Condition
+- Writes `.adt-context/adt-state.json` so future sessions can skip bootstrap checks
+
+If you prefer manual setup, copy the template into your repo (and commit it):
+
 Copy the template into your repo (and commit it):
 
 **bash:**
@@ -65,6 +85,8 @@ If you want the recommended high-attention wording, copy/paste from `COPILOT-INS
 ```
 
 ### 4) Add a scratchpad (recommended)
+
+Use `.scratchpad/` for temporary scripts/debug helpers.
 
 Add this to your project `.gitignore`:
 

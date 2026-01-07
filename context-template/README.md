@@ -14,8 +14,13 @@ Keep it short and current. Prefer updating these files over leaving context only
 ## How To Work Here
 
 - Read `now.md` before starting work.
+- Check `reminders.md` for any pending reminders.
 - If you hit errors, record them in `attempts.md` before retrying.
 - Use `interrupt.md` as a human pause button.
+
+## When A Session Ends
+
+If you have to stop with work in-flight (user leaving / going to bed), write a detailed status dump in `handoff.md`.
 
 ## Handy Links
 

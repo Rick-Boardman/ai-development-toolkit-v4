@@ -6,6 +6,38 @@ Your goal is to work quickly **without repeating mistakes** and **without clutte
 
 ---
 
+## Bootstrap / Initialization (First Run)
+
+If any of the following are missing:
+
+- `.adt-context/`
+- `.adt-context/adt-state.json`
+
+Then perform a **one-time bootstrap** (and record it in `.adt-context/adt-state.json`) so the human does not need to do manual setup.
+
+Bootstrap steps:
+
+1. Create `.adt-context/` if it doesn’t exist.
+2. Copy the toolkit template `.adt/context-template/` into `.adt-context/` **without overwriting existing project-specific content** (fill missing files only).
+3. Create `.scratchpad/` if it doesn’t exist.
+4. Create `.gitignore` if it doesn’t exist.
+5. Ensure `.scratchpad/` is listed in `.gitignore`.
+6. Create `.github/` if it doesn’t exist.
+7. Create `.github/copilot-instructions.md` if it doesn’t exist.
+8. Ensure `.github/copilot-instructions.md` contains **ADT v4 Option A** from `.adt/COPILOT-INSTRUCTIONS-SNIPPET.md` and the **Stop Condition** line.
+9. If `.old-adt/` exists, follow `.adt/ADT-V3-TO-V4-MIGRATION.md` and migrate real project memory into `.adt-context/`.
+10. Review the repo and update `.adt-context/README.md` so it contains real project info (goal, constraints, commands, links).
+11. Update `.adt-context/adt-state.json`:
+  - `bootstrapCompleted: true`
+  - `migration.required` / `migration.completed`
+  - `contextReadmeCustomized: true` once `.adt-context/README.md` is populated
+
+If you can execute scripts, prefer running the toolkit initializer:
+
+- Windows PowerShell (from project root): `powershell -ExecutionPolicy Bypass -File .adt/scripts/adt-init.ps1`
+
+---
+
 ## Required Reads
 
 Before making changes, read:
@@ -14,6 +46,7 @@ Before making changes, read:
 2. `.adt-context/README.md`
 3. `.adt-context/now.md`
 4. `.adt-context/common-pitfalls.md`
+5. `.adt-context/reminders.md`
 
 If you hit errors or uncertainty, also read/update:
 
@@ -83,6 +116,23 @@ Temporary artifacts must go in `.scratchpad/`:
 - temporary data dumps
 
 Default: `.scratchpad/` is gitignored.
+
+---
+
+## Reminders (Beyond The Task List)
+
+Use `.adt-context/reminders.md` for reminders that should survive beyond the current task list in `now.md`.
+
+- Treat reminders as actionable items (trigger + owner).
+- If a reminder should block work, put it in `interrupt.md` instead.
+
+---
+
+## End Of Session Handoff (Detailed)
+
+If the user is ending the session with work in-flight (leaving / going to bed / switching contexts), write a **high-detail dump** to `.adt-context/handoff.md` before you stop.
+
+Include: what changed, current state, next step, commands run, errors/attempts, and open questions.
 
 ---
 

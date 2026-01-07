@@ -78,14 +78,17 @@ your-project/
 ├── .adt-context/                      ← Committed project memory (copy of template)
 │   ├── README.md                      ← Context snapshot (keep short)
 │   ├── now.md                         ← 1–5 current tasks
+│   ├── reminders.md                   ← Reminders beyond the task list
 │   ├── backlog.md                     ← Ideas / next work
 │   ├── log.md                         ← Append-only “done / notable events”
+│   ├── handoff.md                      ← Detailed end-of-session dump
 │   ├── attempts.md                    ← Commands tried + errors + outcomes
 │   ├── common-pitfalls.md             ← Sticky mistakes & conventions
 │   ├── interrupt.md                   ← Pause button for humans
 │   └── decisions.md                   ← Technical decisions w/ rationale
 │
 └── .scratchpad/                       ← Temporary scripts/debug (gitignored)
+
 ````
 
 ---
@@ -114,8 +117,8 @@ your-project/
 
 1. Follow [INTEGRATION-GUIDE.md](INTEGRATION-GUIDE.md)
 2. Add `.adt/` as a submodule
-3. Copy `context-template/` to `.adt-context/` and commit it
-4. Add one reference line to `.github/copilot-instructions.md`
+3. Run the initializer: `powershell -ExecutionPolicy Bypass -File .adt/scripts/adt-init.ps1`
+4. Commit `.adt-context/` and `.github/copilot-instructions.md`
 
 ### Phase 3: Use (Ongoing)
 
